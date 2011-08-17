@@ -1,5 +1,13 @@
 import sys
 
+# comments = ['///', '///-', '///--', '///---']
+comments = ['#-', '##-', '###-', '####-']
+# comments = ['#-', '#--', '#---', '#----']
+# comments = ['%-', '%--', '%---', '%----']
+# comments = ['%-', '%%-', '%%%-', '%%%%-']
+# comments = ['---', '---!', '---!!', '---!!']
+
+
 def parse(line_iterator, hcomments):
 	items = []
 	current_item = {}
@@ -70,5 +78,7 @@ def render(items):
 		s += item['description']
 	return s
 
+
+
 f = open(sys.argv[1])
-print render(parse((line for line in f), ['#;', '##;', '###;', '####;']))
+print render(parse((line for line in f), comments))
